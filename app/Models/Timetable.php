@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Show extends Model
+class Timetable extends Model
 {
     use HasFactory;
 
     protected $fillable =[
-        'title',
-        'description',
-        'duration_minutes'
+        'start',
+        'emd',
+        'show_id',
+        'advertising_id'
     ];
 }

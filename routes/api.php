@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdvertisingController;
+use App\Http\Controllers\ShowController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('advertising/', [AdvertisingController::class, 'index']);
+Route::post('advertising/store/', [AdvertisingController::class, 'store']);
+Route::get('shows/', [ShowController::class, 'index']);
+Route::post('shows/store/', [ShowController::class, 'store']);
+
+
+
+

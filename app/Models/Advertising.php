@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Show extends Model
+class Advertising extends Model
 {
     use HasFactory;
 
     protected $fillable =[
-        'title',
-        'description',
+        'product',
+        'audience',
+        'budget',
         'duration_minutes'
     ];
 }
