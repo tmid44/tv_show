@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->dateTime('start')->nullable();
             $table->dateTime('end')->nullable();
-            $table->foreignId('show_id')->constrained('shows')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('advertising_id')->constrained('advertisings')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('show_id')->nullable()->constrained('shows')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('advertising_id')->nullable()->constrained('advertisings')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
