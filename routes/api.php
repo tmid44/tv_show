@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdvertisingController;
 use App\Http\Controllers\ShowController;
 use App\Http\Controllers\TimetableController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,8 @@ Route::get('shows/', [ShowController::class, 'index']);
 Route::post('shows/store/', [ShowController::class, 'store']);
 Route::get('timetable/', [TimetableController::class, 'index']);
 Route::post('timetable/store/', [TimetableController::class, 'store']);
+Route::get('users/', [UserController::class, 'index']);
+Route::post('users/store/', [UserController::class, 'store']);
 
 
 
