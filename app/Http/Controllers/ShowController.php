@@ -21,4 +21,9 @@ class ShowController extends Controller
         return 'success';
     }
 
+    public function show(Show  $show)
+    {
+        return $show;
+    }
+
 }

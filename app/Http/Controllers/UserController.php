@@ -21,4 +21,8 @@ class UserController extends Controller
         return 'success';
     }
 
+    public function show(User $user)
+    {
+        return $user;
+    }
 }

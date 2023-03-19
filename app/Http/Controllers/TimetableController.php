@@ -21,4 +21,9 @@ class TimetableController extends Controller
         return 'success';
     }
 
+    public function show(Timetable $timetable)
+    {
+        return $timetable;
+    }
+
 }

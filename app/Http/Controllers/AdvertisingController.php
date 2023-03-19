@@ -21,4 +21,9 @@ class AdvertisingController extends Controller
         return 'success';
     }
 
+    public function show(Advertising $advertising)
+    {
+        return $advertising;
+    }
+
 }
