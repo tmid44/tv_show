@@ -11,7 +11,7 @@ class Timetable extends Model
 
     protected $fillable =[
         'start',
-        'emd',
+        'end',
         'show_id',
         'advertising_id'
     ];
