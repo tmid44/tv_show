@@ -116,4 +116,12 @@ class UserController extends Controller
     {
         return $user;
     }
+
+    public function indexView()
+    {
+        $users = User::all();
+
+//        return view('admin.user', ['users' => $users]);
+        return view('admin.user');
+    }
 }
