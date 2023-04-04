@@ -21,7 +21,7 @@
     <nav>
         <ul>
             <li>
-                <a href="{{route('admin.show.index')}}">TV передачі</a>
+                <a href="{{route('admin.user.index')}}">Користувачі</a>
             </li>
             <li>
                 <a href="">Реклама</a>
@@ -31,10 +31,7 @@
             </li>
         </ul>
     </nav>
-{{--        <div id="user-table">--}}
-{{--            <user-table :users="{{ $users }}"></user-table>--}}
-{{--        </div>--}}
-        <div id="user"></div>
+        <div id="tv_show"></div>
     </body>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </html>

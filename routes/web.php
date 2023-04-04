@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ShowController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,9 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::group(['prefix' => 'users', 'namespace' => 'User'], function () {
-        Route::get('/', [UserController::class, 'indexView'])->name('admin.post.index');
+        Route::get('/', [UserController::class, 'indexView'])->name('admin.user.index');
+    });
+    Route::group(['prefix' => 'shows', 'namespace' => 'Show'], function () {
+        Route::get('/', [ShowController::class, 'indexView'])->name('admin.show.index');
     });
 });

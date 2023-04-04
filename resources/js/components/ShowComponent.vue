@@ -2,62 +2,66 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Ім'я</th>
-            <th>Email</th>
+            <th>ІД</th>
+            <th>Назва</th>
+            <th>Опис</th>
+            <th>Тривалість</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="user in users" :key="user.id">
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
+        <tr v-for="show in shows" :key="show.id">
+            <td>{{ show.id }}</td>
+            <td>{{ show.title }}</td>
+            <td>{{ show.description }}</td>
+            <td>{{ show.duration_minutes }}</td>
         </tr>
         </tbody>
     </table>
     <div>
         <form>
             <div class="form-group">
-                <label for="name">Ім'я:</label>
-                <input type="text" id="name" v-model="user.name">
+                <label for="title">Назва:</label>
+                <input type="text" id="title" v-model="show.title">
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" v-model="user.email">
+                <label for="description">Опис:</label>
+                <input type="text" id="description" v-model="show.description">
             </div>
             <div class="form-group">
-                <label for="password">Пароль:</label>
-                <input type="password" id="password" v-model="user.password">
+                <label for="duration_minutes">Тривалість:</label>
+                <input type="number" id="duration_minutes" v-model="show.duration_minutes">
             </div>
-            <button class="save-user" @click.prevent="saveUser">Зберегти користувача</button>
+            <button class="save-show" @click.prevent="saveShow">Зберегти програму</button>
         </form>
     </div>
 </template>
 
 <script>
 export default {
-    name: "UserComponent",
+    name: "ShowComponent",
 
     data() {
         return {
-            user: {
-                name: '',
-                email: '',
-                password: '',
+            show: {
+                title: '',
+                description: '',
+                duration_minutes: '',
             },
         };
     },
     methods: {
-        saveUser() {
-            axios.post('/api/users/store', this.user).then((response) => {
+        saveShow() {
+            axios.post('/api/shows/store', this.show).then((response) => {
                 // Handle success response
             }).catch((error) => {
                 // Handle error response
             });
-            this.fetchUsers();
+            this.fetchShows();
         },
-        fetchUsers() {
-            axios.get('/api/users')
+        fetchShows() {
+            axios.get('/api/shows')
                 .then(response => {
-                    this.users = response.data;
+                    this.shows = response.data;
                 })
                 .catch(error => {
                     console.log(error);
@@ -65,7 +69,7 @@ export default {
         }
     },
     mounted() {
-        this.fetchUsers();
+        this.fetchShows();
     }
 }
 </script>
@@ -84,8 +88,7 @@ label {
 }
 
 input[type="text"],
-input[type="email"],
-input[type="password"] {
+input[type="number"] {
     width: 100%;
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -97,7 +100,7 @@ input[type="password"] {
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-.save-user {
+.save-show {
     background-color: #007bff;
     border-color: #007bff;
     color: #fff;
@@ -108,7 +111,7 @@ input[type="password"] {
     cursor: pointer;
 }
 
-.save-user:hover {
+.save-show:hover {
     background-color: #0069d9;
     border-color: #0062cc;
 }
@@ -138,30 +141,6 @@ tbody tr:hover {
 
 button {
     margin-right: .5rem;
-}
-
-.btn-primary {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
-.btn-primary:hover {
-    color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
-}
-
-.btn-danger {
-    color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
-}
-
-.btn-danger:hover {
-    color: #fff;
-    background-color: #c82333;
-    border-color: #bd2130;
 }
 
 </style>

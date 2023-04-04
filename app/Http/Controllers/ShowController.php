@@ -117,4 +117,9 @@ class ShowController extends Controller
         return $show;
     }
 
+    public function indexView()
+    {
+        return view('admin.show');
+    }
+
 }
